@@ -64,7 +64,7 @@ jobs:
         run: "apt upgrade -y"
       -
         name: "Install Autotools and curl"
-        run: "apt install -y autoconf automake curl"
+        run: "apt install -y autoconf automake curl zip unzip dos2unix"
       - 
         name: "mkdir /wrk"
         run: "mkdir /wrk"
@@ -73,7 +73,7 @@ jobs:
         run: "mkdir /archive"
       - 
         name: "Download MXE Script"
-        run: "curl -O https://gist.githubusercontent.com/ccallahan/72752837ca6e57eba39a049c8be9d4a6/raw/035d04f280a3ba579fa32c4e8bcc4bd749e95bff/mxe.sh"
+        run: "curl -O https://gist.githubusercontent.com/ccallahan/72752837ca6e57eba39a049c8be9d4a6/raw/ea4e85a648d81f9eb315710a99be0a71da539be6/mxe.sh"
       - 
         name: "Build Aleph One"
         run: "/bin/bash mxe.sh"
