@@ -1,3 +1,5 @@
+name: Sync Master With Upstream
+
 on:
   schedule:
     - cron:  '*/5 * * * *'
