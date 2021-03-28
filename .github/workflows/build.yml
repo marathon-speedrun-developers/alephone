@@ -73,7 +73,7 @@ jobs:
         run: "mkdir /archive"
       - 
         name: "Download MXE Script"
-        run: "curl -O https://gist.github.com/ccallahan/72752837ca6e57eba39a049c8be9d4a6/raw/c52e07468ba61f6e894b601fb9f134fccf1ba3a3/mxe.sh"
+        run: "curl -O https://gist.githubusercontent.com/ccallahan/72752837ca6e57eba39a049c8be9d4a6/raw/c52e07468ba61f6e894b601fb9f134fccf1ba3a3/mxe.sh"
       - 
         name: "Build Aleph One"
         run: "/bin/bash mxe.sh"
