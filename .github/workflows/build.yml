@@ -64,7 +64,7 @@ jobs:
         run: "apt upgrade -y"
       -
         name: "Install autotools, curl, zip, and dos2unix"
-        run: "apt install -y autoconf automake curl zip unzip dos2unix build-essential"
+        run: "apt install -y autoconf automake curl zip unzip dos2unix build-essential pkg-config"
       - 
         name: "mkdir /wrk"
         run: "mkdir /wrk"
