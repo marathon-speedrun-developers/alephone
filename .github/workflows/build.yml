@@ -1,0 +1,161 @@
+name: Build Aleph One
+
+on:
+  push:
+    branches: [ master ]
+
+jobs: 
+  fc33_build: 
+    container: 
+      image: "marathondevs/alephone-fc33:latest"
+    runs-on: ubuntu-latest
+    steps: 
+      - 
+        uses: actions/checkout@v2
+      - 
+        name: "Current OS"
+        run: "uname -a"
+      - 
+        name: "dnf update"
+        run: "dnf update -y"
+      - 
+        name: "mkdir /wrk"
+        run: "mkdir /wrk"
+      - 
+        name: "mkdir /archive"
+        run: "mkdir /archive"
+      - 
+        name: ./autogen.sh
+        run: "/bin/bash autogen.sh --prefix=/wrk"
+      - 
+        name: make
+        run: make
+      - 
+        name: "make install"
+        run: "make install"
+      - 
+        name: "Create Artifact Tarball"
+        run: "tar -cvfz /archive/fc33-magic.tgz /wrk/"
+      - 
+        name: "Publish Artifact Tarball"
+        uses: actions/upload-artifact@v2
+        with: 
+          name: fc33-artifact
+          path: /archive/fc33-magic.tgz
+  mxe_build: 
+    container: 
+      image: "marathondevs/alephone-ubu1804:latest"
+    runs-on: ubuntu-latest
+    steps: 
+      - 
+        uses: actions/checkout@v2
+      - 
+        name: "Current OS"
+        run: "uname -a"
+      - 
+        name: "apt update"
+        run: "apt update"
+      - 
+        name: "apt upgrade"
+        run: "apt upgrade -y"
+      - 
+        name: "mkdir /wrk"
+        run: "mkdir /wrk"
+      - 
+        name: "mkdir /archive"
+        run: "mkdir /archive"
+      - 
+        name: "Download MXE Script"
+        run: "curl -O https://gist.githubusercontent.com/ccallahan/72752837ca6e57eba39a049c8be9d4a6/raw/035d04f280a3ba579fa32c4e8bcc4bd749e95bff/mxe.sh"
+      - 
+        name: "Build Aleph One"
+        run: "/bin/bash mxe.sh"
+      - 
+        name: "Create Artifact Tarball"
+        run: "tar -cvfz /archive/fc33-magic.tgz /wrk/"
+      - 
+        name: "Publish Artifact Tarball"
+        uses: actions/upload-artifact@v2
+        with: 
+          name: ubu2004-artifact
+          path: /archive/fc33-magic.tgz
+  ubu1804_build: 
+    container: 
+      image: "marathondevs/alephone-ubu1804:latest"
+    runs-on: ubuntu-latest
+    steps: 
+      - 
+        uses: actions/checkout@v2
+      - 
+        name: "Current OS"
+        run: "uname -a"
+      - 
+        name: "apt update"
+        run: "apt update"
+      - 
+        name: "apt upgrade"
+        run: "apt upgrade -y"
+      - 
+        name: "mkdir /wrk"
+        run: "mkdir /wrk"
+      - 
+        name: "mkdir /archive"
+        run: "mkdir /archive"
+      - 
+        name: ./autogen.sh
+        run: "/bin/bash autogen.sh --prefix=/wrk"
+      - 
+        name: make
+        run: make
+      - 
+        name: "make install"
+        run: "make install"
+      - 
+        name: "Create Artifact Tarball"
+        run: "tar -cvfz /archive/fc33-magic.tgz /wrk/"
+      - 
+        name: "Publish Artifact Tarball"
+        uses: actions/upload-artifact@v2
+        with: 
+          name: ubu1803-artifact
+          path: /archive/fc33-magic.tgz
+  ubu2004_build: 
+    container: 
+      image: "marathondevs/alephone-ubu1804:latest"
+    runs-on: ubuntu-latest
+    steps: 
+      - 
+        uses: actions/checkout@v2
+      - 
+        name: "Current OS"
+        run: "uname -a"
+      - 
+        name: "apt update"
+        run: "apt update"
+      - 
+        name: "apt upgrade"
+        run: "apt upgrade -y"
+      - 
+        name: "mkdir /wrk"
+        run: "mkdir /wrk"
+      - 
+        name: "mkdir /archive"
+        run: "mkdir /archive"
+      - 
+        name: ./autogen.sh
+        run: "/bin/bash autogen.sh --prefix=/wrk"
+      - 
+        name: make
+        run: make
+      - 
+        name: "make install"
+        run: "make install"
+      - 
+        name: "Create Artifact Tarball"
+        run: "tar -cvfz /archive/fc33-magic.tgz /wrk/"
+      - 
+        name: "Publish Artifact Tarball"
+        uses: actions/upload-artifact@v2
+        with: 
+          name: ubu2004-artifact
+          path: /archive/fc33-magic.tgz
