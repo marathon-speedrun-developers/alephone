@@ -39,13 +39,13 @@ jobs:
         run: "make install"
       - 
         name: "Create Artifact Tarball"
-        run: "tar -cvfz /archive/fc33-magic.tgz /wrk/"
+        run: "tar -cvfz fc33-magic.tgz /wrk/"
       - 
         name: "Publish Artifact Tarball"
         uses: actions/upload-artifact@v2
         with: 
           name: fc33-artifact
-          path: /archive/fc33-magic.tgz
+          path: fc33-magic.tgz
   mxe_build: 
     container: 
       image: "marathondevs/alephone-mxe:latest"
@@ -63,7 +63,7 @@ jobs:
         name: "apt upgrade"
         run: "apt upgrade -y"
       -
-        name: "Install Autotools and curl"
+        name: "Install autotools, curl, zip, and dos2unix"
         run: "apt install -y autoconf automake curl zip unzip dos2unix"
       - 
         name: "mkdir /wrk"
@@ -79,13 +79,13 @@ jobs:
         run: "/bin/bash mxe.sh"
       - 
         name: "Create Artifact Tarball"
-        run: "tar -cvfz /archive/mxe-magic.tgz /wrk/"
+        run: "tar -cvfz mxe-magic.tgz /wrk/"
       - 
         name: "Publish Artifact Tarball"
         uses: actions/upload-artifact@v2
         with: 
           name: ubu2004-artifact
-          path: /archive/mxe-magic.tgz
+          path: mxe-magic.tgz
   ubu1804_build: 
     container: 
       image: "marathondevs/alephone-ubu1804:latest"
@@ -122,13 +122,13 @@ jobs:
         run: "make install"
       - 
         name: "Create Artifact Tarball"
-        run: "tar -cvfz /archive/fc33-magic.tgz /wrk/"
+        run: "tar -cvfz fc33-magic.tgz /wrk/"
       - 
         name: "Publish Artifact Tarball"
         uses: actions/upload-artifact@v2
         with: 
           name: ubu1804-artifact
-          path: /archive/ubu1803-magic.tgz
+          path: ubu1804-magic.tgz
   ubu2004_build: 
     container: 
       image: "marathondevs/alephone-ubu2004:latest"
@@ -165,10 +165,10 @@ jobs:
         run: "make install"
       - 
         name: "Create Artifact Tarball"
-        run: "tar -cvfz /archive/fc33-magic.tgz /wrk/"
+        run: "tar -cvfz fc33-magic.tgz /wrk/"
       - 
         name: "Publish Artifact Tarball"
         uses: actions/upload-artifact@v2
         with: 
           name: ubu2004-artifact
-          path: /archive/fc33-magic.tgz
+          path: ubu2004-magic.tgz
