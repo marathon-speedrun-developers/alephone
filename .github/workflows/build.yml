@@ -19,6 +19,9 @@ jobs:
       - 
         name: "dnf update"
         run: "dnf update -y"
+      -
+        name: "install autotools"
+        run: "dnf install -y autoconf automake"
       - 
         name: "mkdir /wrk"
         run: "mkdir /wrk"
@@ -45,7 +48,7 @@ jobs:
           path: /archive/fc33-magic.tgz
   mxe_build: 
     container: 
-      image: "marathondevs/alephone-ubu1804:latest"
+      image: "marathondevs/alephone-mxe:latest"
     runs-on: ubuntu-latest
     steps: 
       - 
@@ -59,6 +62,9 @@ jobs:
       - 
         name: "apt upgrade"
         run: "apt upgrade -y"
+      -
+        name: "Install Autotools"
+        run: "apt install -y autoconf automake"
       - 
         name: "mkdir /wrk"
         run: "mkdir /wrk"
@@ -73,13 +79,13 @@ jobs:
         run: "/bin/bash mxe.sh"
       - 
         name: "Create Artifact Tarball"
-        run: "tar -cvfz /archive/fc33-magic.tgz /wrk/"
+        run: "tar -cvfz /archive/mxe-magic.tgz /wrk/"
       - 
         name: "Publish Artifact Tarball"
         uses: actions/upload-artifact@v2
         with: 
           name: ubu2004-artifact
-          path: /archive/fc33-magic.tgz
+          path: /archive/mxe-magic.tgz
   ubu1804_build: 
     container: 
       image: "marathondevs/alephone-ubu1804:latest"
@@ -96,6 +102,9 @@ jobs:
       - 
         name: "apt upgrade"
         run: "apt upgrade -y"
+      -
+        name: "Install Autotools"
+        run: "apt install -y autoconf automake"
       - 
         name: "mkdir /wrk"
         run: "mkdir /wrk"
@@ -118,11 +127,11 @@ jobs:
         name: "Publish Artifact Tarball"
         uses: actions/upload-artifact@v2
         with: 
-          name: ubu1803-artifact
-          path: /archive/fc33-magic.tgz
+          name: ubu1804-artifact
+          path: /archive/ubu1803-magic.tgz
   ubu2004_build: 
     container: 
-      image: "marathondevs/alephone-ubu1804:latest"
+      image: "marathondevs/alephone-ubu2004:latest"
     runs-on: ubuntu-latest
     steps: 
       - 
@@ -136,6 +145,9 @@ jobs:
       - 
         name: "apt upgrade"
         run: "apt upgrade -y"
+      -
+        name: "Install Autotools"
+        run: "apt install -y automake autoconf"
       - 
         name: "mkdir /wrk"
         run: "mkdir /wrk"
