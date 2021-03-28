@@ -39,7 +39,7 @@ jobs:
         run: "make install"
       - 
         name: "Create Artifact Tarball"
-        run: "tar -cvfz fc33-magic.tgz /wrk/"
+        run: "tar -cvzf fc33-magic.tgz /wrk/"
       - 
         name: "Publish Artifact Tarball"
         uses: actions/upload-artifact@v2
@@ -79,7 +79,7 @@ jobs:
         run: "/bin/bash mxe.sh"
       - 
         name: "Create Artifact Tarball"
-        run: "tar -cvfz mxe-magic.tgz /wrk/"
+        run: "tar -cvzf mxe-magic.tgz /wrk/"
       - 
         name: "Publish Artifact Tarball"
         uses: actions/upload-artifact@v2
@@ -122,7 +122,7 @@ jobs:
         run: "make install"
       - 
         name: "Create Artifact Tarball"
-        run: "tar -cvfz fc33-magic.tgz /wrk/"
+        run: "tar -cvzf fc33-magic.tgz /wrk/"
       - 
         name: "Publish Artifact Tarball"
         uses: actions/upload-artifact@v2
@@ -165,7 +165,7 @@ jobs:
         run: "make install"
       - 
         name: "Create Artifact Tarball"
-        run: "tar -cvfz fc33-magic.tgz /wrk/"
+        run: "tar -cvzf fc33-magic.tgz /wrk/"
       - 
         name: "Publish Artifact Tarball"
         uses: actions/upload-artifact@v2
