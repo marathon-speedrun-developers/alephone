@@ -63,8 +63,8 @@ jobs:
         name: "apt upgrade"
         run: "apt upgrade -y"
       -
-        name: "Install Autotools"
-        run: "apt install -y autoconf automake"
+        name: "Install Autotools and curl"
+        run: "apt install -y autoconf automake curl"
       - 
         name: "mkdir /wrk"
         run: "mkdir /wrk"
