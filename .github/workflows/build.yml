@@ -84,7 +84,7 @@ jobs:
         name: "Publish Artifact Tarball"
         uses: actions/upload-artifact@v2
         with: 
-          name: ubu2004-artifact
+          name: mxe-artifact
           path: mxe-magic.tgz
   ubu1804_build: 
     container: 
