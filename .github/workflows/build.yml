@@ -3,7 +3,6 @@ name: Build Aleph One
 on:
   push:
     branches: [ master ]
-  workflow_dispatch:
 
 jobs: 
   fc33_build: 
